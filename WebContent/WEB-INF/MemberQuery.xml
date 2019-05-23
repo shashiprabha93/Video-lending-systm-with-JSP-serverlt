@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+	<!-- Create table employee Query -->
+	<query id="create_member_table">
+        <![CDATA[
+            CREATE TABLE member(
+				memberID varchar(100) not null,
+				firstName varchar(200),
+				lastName varchar(150),
+				address varchar(150),		
+				city varchar(150),
+				email  varchar(500),
+				phoneNo varchar(200),
+				primary key (memberID)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE EMPLOYEES Query -->
+	<query id="drop_table_member">
+         <![CDATA[        
+            DROP TABLE IF EXISTS member 
+        ]]>
+	</query>
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_member">
+        <![CDATA[
+          	insert into member (memberID, firstName, lastName, address, city, email, phoneNo) 
+          	values (?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+			<!-- Get employee IDs Query -->
+	<query id="member_ids">
+         <![CDATA[        
+            select m.memberID from member as m
+        ]]>
+	</query>
+	
+<!-- Select all employees -->
+	<query id="all_members">
+         <![CDATA[        
+            select * from member
+        ]]>
+	</query>
+
+	<!-- Delete a particular employee by id Query -->
+	<query id="remove_member">
+         <![CDATA[        
+            delete from member where member.memberID = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_member">
+         <![CDATA[        
+            update member as m
+            set m.firstName = ?, m.lastName = ?, m.address = ?, m.city = ?, m.email = ?, m.phoneNo = ? 
+            where m.memberID = ?
+        ]]>
+	</query>
+	
+		<!-- Get employee IDs Query -->
+	<query id="member_ids">
+         <![CDATA[        
+            select m.memberID from member as m
+        ]]>
+	</query>
+	
+	<!-- Select a particular employee by id Query -->
+	<query id="member_by_id">
+         <![CDATA[        
+            select * from member where member.memberID = ?
+        ]]>
+	</query>
+
+</Querys>

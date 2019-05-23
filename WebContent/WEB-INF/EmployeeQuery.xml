@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+	<!-- Create table employee Query -->
+	<query id="create_video_table">
+        <![CDATA[
+            CREATE TABLE video(
+				videoID varchar(100) not null,
+				name varchar(200),
+				filmCategory varchar(115),
+				quantity varchar(150),
+				subtitleLanguage varchar(150),
+				
+				
+				primary key (videoID)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE EMPLOYEES Query -->
+	<query id="drop_table">
+         <![CDATA[        
+            DROP TABLE IF EXISTS video 
+        ]]>
+	</query>
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_video">
+        <![CDATA[
+          	insert into video (videoID, name, filmCategory, quantity ,subtitleLanguage) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular employee by id Query -->
+	<query id="video_by_id">
+         <![CDATA[        
+            select * from video where video.videoID = ?
+        ]]>
+	</query>
+
+	<!-- Select all employees -->
+	<query id="all_videos">
+         <![CDATA[        
+            select * from video
+        ]]>
+	</query>
+
+	<!-- Delete a particular employee by id Query -->
+	<query id="remove_video">
+         <![CDATA[        
+            delete from video where video.videoID = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_video">
+         <![CDATA[        
+            update video as v 
+            set v.name = ?,  v.filmCategory = ?,v.quantity = ?,  v.subtitleLanguage = ?
+            where v.videoID = ?
+        ]]>
+	</query>
+	
+		<!-- Get employee IDs Query -->
+	<query id="video_ids">
+         <![CDATA[        
+            select v.videoID from video as v
+        ]]>
+	</query>
+	
+	
+	
+	
+	
+	
+	
+
+</Querys>
